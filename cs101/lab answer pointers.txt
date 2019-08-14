@@ -1,0 +1,35 @@
+
+#include<stdio.h>
+int stlen(char *p);
+int count_newlines(char *p,int strlen);
+int main(void)
+{
+char s[1024];
+char *p;
+p=&s[0];
+for(int i=0;i<1024;i++)
+{scanf("%c",&s[i]);
+if(s[i]=='$')
+break;
+}
+int slength=stlen(p);
+int nl=count_newlines(p,slength);
+printf("%d",nl);
+}
+int stlen(char *p) {
+int nc = 0; /* number of characters */
+int i; /* index variable */
+for (i = 0; p[i] != '\0'; i++) {
+nc++;
+}
+return nc;
+}
+int count_newlines(char *p,int strlen)
+{int nl=0;
+for(int j=0;j<strlen;j++)
+{if(p[j]=='\n')
+nl++;
+}
+return nl;
+}
+
